@@ -12,7 +12,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "sans 8"
+theme.font = "FiraCode NF 8.5"
 
 theme.bg_normal = "#222222"
 theme.bg_focus = "#535d6c"
@@ -91,6 +91,7 @@ theme.tasklist_bg_normal = "#00000000"
 theme.tasklist_bg_focus = "#00000000"
 theme.tasklist_bg_minimize = "#00000000"
 theme.tasklist_disable_task_name = true
+theme.tasklist_plain_task_name = true
 
 -- taglist style
 theme.taglist_bg_focus = "#00000000"
@@ -147,7 +148,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/titleba
 theme.titlebar_maximized_button_normal_active = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/maximized_focus_active.png"
 
---
+-- set wallpaper
 local user_config_path = gfs.get_configuration_dir()
 theme.wallpaper = user_config_path .. "wallpapers/1.jpg"
 
