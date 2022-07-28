@@ -60,28 +60,24 @@ M.setup = function(s)
 	local taglist = awful.widget.taglist({
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
+		layout = {
+			spacing = 12,
+			layout = wibox.layout.fixed.horizontal,
+		},
 		widget_template = {
 			{
-				{
-					widget = wibox.widget.checkbox,
-					checked = false,
-					-- inside (checked) shape
-					check_shape = gears.shape.circle,
-					-- border shape
-					shape = gears.shape.circle,
-					-- padding between border & inner checked area
-					paddings = 4,
-					border_width = 2,
-					id = "tag_checkbox_role",
-				},
-				left = 8,
-				right = 8,
-				top = 4,
-				bottom = 4,
-				widget = wibox.container.margin,
+				widget = wibox.widget.checkbox,
+				checked = false,
+				-- inside (checked) shape
+				check_shape = gears.shape.losange,
+				-- border shape
+				shape = gears.shape.losange,
+				-- padding between border & inner checked area
+				paddings = 5,
+				border_width = 2,
+				id = "tag_checkbox_role",
 			},
 			widget = wibox.container.background,
-			bg = beautiful.bg_0,
 			-- Add support for hover colors and an index label
 			create_callback = function(item, tag, index, objects) --luacheck: no unused args
 				update_icon(item, tag, index)

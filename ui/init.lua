@@ -15,14 +15,14 @@ local tasklist = require("ui.tasklist")
 local M = {}
 
 M.setup = function()
-	mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+	-- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 	-- Menubar configuration
 	-- menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 	-- }}}
 
 	-- Keyboard map indicator and switcher
-	mykeyboardlayout = awful.widget.keyboardlayout()
+	-- mykeyboardlayout = awful.widget.keyboardlayout()
 
 	-- {{{ Wibar
 	-- Create a textclock widget
@@ -51,7 +51,7 @@ M.setup = function()
 		set_wallpaper(s)
 
 		-- Create a promptbox for each screen
-		s.mypromptbox = awful.widget.prompt()
+		-- s.mypromptbox = awful.widget.prompt()
 		-- Create an imagebox widget which will contain an icon indicating which layout we're using.
 		-- We need one layoutbox per screen.
 		s.mylayoutbox = awful.widget.layoutbox(s)
@@ -86,36 +86,54 @@ M.setup = function()
 			expand = "none",
 			layout = wibox.layout.align.horizontal,
 			{ -- Left widgets
-				layout = wibox.layout.fixed.horizontal,
-				mylauncher,
-				s.mytaglist,
-				s.mypromptbox,
+				{
+					{
+						{
+							layout = wibox.layout.fixed.horizontal,
+							s.mytaglist,
+						},
+
+						widget = wibox.container.margin,
+						left = 15,
+						right = 15,
+						top = 5,
+						bottom = 5,
+					},
+					widget = wibox.container.background,
+					bg = beautiful.bg_0,
+					shape = function(cr, width, height)
+						gears.shape.rounded_rect(cr, width, height, 8)
+					end,
+				},
+				widget = wibox.container.margin,
+				left = 15,
 			},
 			-- middle time widget
 			s.localinfo,
-			{ -- Right widgets
+			-- Right widgets
+			{
 				{
 					{
-						layout = wibox.layout.fixed.horizontal,
-						-- mykeyboardlayout,
-						-- wibox.widget.systray(),
-						-- widget = wibox.container.margin,
-						-- top = 2,
-						-- bottom = 2,
-						s.tasklist,
-						s.mylayoutbox,
+						{
+							layout = wibox.layout.fixed.horizontal,
+							-- wibox.widget.systray(),
+							s.tasklist,
+							s.mylayoutbox,
+						},
+						widget = wibox.container.margin,
+						left = 15,
+						right = 15,
+						top = 3,
+						bottom = 3,
 					},
-					widget = wibox.container.margin,
-					left = 15,
-					right = 15,
-					top = 3,
-					bottom = 3,
+					widget = wibox.container.background,
+					bg = beautiful.bg_0,
+					shape = function(cr, width, height)
+						gears.shape.rounded_rect(cr, width, height, 8)
+					end,
 				},
-				widget = wibox.container.background,
-				bg = beautiful.bg_0,
-				shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, 8)
-				end,
+				widget = wibox.container.margin,
+				right = 15,
 			},
 		})
 	end)
