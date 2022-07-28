@@ -2,7 +2,7 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local menubar = require("menubar")
+-- local menubar = require("menubar")
 
 -- import widgets used in ui from ./widgets directory
 
@@ -18,7 +18,7 @@ M.setup = function()
 	mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 	-- Menubar configuration
-	menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+	-- menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 	-- }}}
 
 	-- Keyboard map indicator and switcher
