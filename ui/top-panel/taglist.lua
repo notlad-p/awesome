@@ -3,6 +3,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 
+local modkey = require("configuration.keys.mod").modkey
+
 local M = {}
 
 M.setup = function(s)

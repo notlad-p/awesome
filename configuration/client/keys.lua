@@ -1,10 +1,10 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local modkey = require("keys.mod").modkey
+local modkey = require("configuration.keys.mod").modkey
 
 local clientkeys = gears.table.join(
-	awful.key({ modkey }, "f", function(c)
+	awful.key({ modkey, "Shift" }, "f", function(c)
 		c.fullscreen = not c.fullscreen
 		c:raise()
 	end, { description = "toggle fullscreen", group = "client" }),

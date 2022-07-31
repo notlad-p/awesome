@@ -1,8 +1,8 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 
-local clientkeys = require("ui.client.keys")
-local clientbuttons = require("ui.client.buttons")
+local clientkeys = require("configuration.client.keys")
+local clientbuttons = require("configuration.client.buttons")
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).

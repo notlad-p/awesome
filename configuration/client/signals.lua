@@ -18,28 +18,52 @@ client.connect_signal("request::titlebars", function(c)
 	)
 
 	awful.titlebar(c):setup({
-		{ -- Left
-			awful.titlebar.widget.iconwidget(c),
-			buttons = buttons,
-			layout = wibox.layout.fixed.horizontal,
-		},
-		{ -- Middle
-			{ -- Title
-				align = "center",
-				widget = awful.titlebar.widget.titlewidget(c),
+		{
+			{ -- Left
+				-- awful.titlebar.widget.iconwidget(c),
+				{
+					awful.titlebar.widget.floatingbutton(c),
+					widget = wibox.container.margin,
+					top = 5,
+					bottom = 5,
+				},
+				layout = wibox.layout.fixed.horizontal,
 			},
-			buttons = buttons,
-			layout = wibox.layout.flex.horizontal,
+			{ -- Middle
+				-- { -- Title
+				-- 	align = "center",
+				-- 	widget = awful.titlebar.widget.titlewidget(c),
+				-- },
+				buttons = buttons,
+				layout = wibox.layout.flex.horizontal,
+			},
+			{ -- Right
+				{
+					awful.titlebar.widget.minimizebutton(c),
+					widget = wibox.container.margin,
+					top = 5,
+					bottom = 5,
+				},
+				{
+					awful.titlebar.widget.maximizedbutton(c),
+					widget = wibox.container.margin,
+					top = 5,
+					bottom = 5,
+				},
+				{
+					awful.titlebar.widget.closebutton(c),
+					widget = wibox.container.margin,
+					top = 5,
+					bottom = 5,
+				},
+				layout = wibox.layout.fixed.horizontal(),
+				spacing = 10,
+			},
+			layout = wibox.layout.align.horizontal,
 		},
-		{ -- Right
-			awful.titlebar.widget.floatingbutton(c),
-			awful.titlebar.widget.maximizedbutton(c),
-			awful.titlebar.widget.stickybutton(c),
-			awful.titlebar.widget.ontopbutton(c),
-			awful.titlebar.widget.closebutton(c),
-			layout = wibox.layout.fixed.horizontal(),
-		},
-		layout = wibox.layout.align.horizontal,
+		widget = wibox.container.margin,
+		left = 10,
+		right = 10,
 	})
 end)
 
