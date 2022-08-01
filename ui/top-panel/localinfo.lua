@@ -2,6 +2,8 @@ local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 
+local weather_widget = require("ui.top-panel.weather").setup()
+
 local M = {}
 
 M.setup = function()
@@ -12,7 +14,7 @@ M.setup = function()
 		span_ratio = 0.7,
 	}
 
-	local date_time = {
+	local date_time = wibox.widget({
 		{
 			{
 				{
@@ -29,6 +31,7 @@ M.setup = function()
 					-- time
 					widget = wibox.widget.textclock("%l:%M %P"),
 				},
+				weather_widget,
 				spacing_widget = separator,
 				spacing = 20,
 				layout = wibox.layout.fixed.horizontal,
@@ -42,7 +45,7 @@ M.setup = function()
 		shape = function(cr, width, height)
 			gears.shape.rounded_rect(cr, width, height, 8)
 		end,
-	}
+	})
 
 	return date_time
 end
