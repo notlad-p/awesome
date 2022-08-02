@@ -96,7 +96,7 @@ M.setup = function()
 		temp_widget.markup = tostring(temp_num) .. "°<sup>F</sup>"
 	end
 
-	awful.widget.watch(string.format(GET_FORECAST_CMD, url), config.uupdate_interval, callback)
+	awful.widget.watch(string.format(GET_FORECAST_CMD, url), config.update_interval, callback)
 
 	return weather_widget
 end
