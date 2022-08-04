@@ -20,9 +20,9 @@ local run_once = function(cmd)
 			-- if not stderr or stderr == "" or not debug_mode then
 			-- 	return
 			-- end
-			if not stderr or stderr == "" then
-				return
-			end
+			-- if not stderr or stderr == "" then
+			-- 	return
+			-- end
 			naughty.notification({
 				app_name = "Start-up Applications",
 				title = "<b>Oof! Error detected when starting an application!</b>",
@@ -35,5 +35,6 @@ local run_once = function(cmd)
 end
 
 for _, app in ipairs(apps.run_on_start_up) do
-	run_once(app)
+	-- run_once(app)
+	awful.util.spawn(app)
 end
