@@ -18,20 +18,33 @@ M.setup = function()
 		{
 			{
 				{
+
 					-- day of week
-					widget = wibox.widget.textclock("%A"),
+					wibox.widget.textclock("%A"),
+					fg = beautiful.yellow,
+					widget = wibox.container.background,
 				},
 				-- separator,
 				{
 					-- date
-					widget = wibox.widget.textclock("%b %e"),
+					wibox.widget.textclock("%b %e"),
+					fg = beautiful.yellow,
+					widget = wibox.container.background,
 				},
 				-- separator,
 				{
 					-- time
-					widget = wibox.widget.textclock("%l:%M %P"),
+					wibox.widget.textclock("%l:%M %P"),
+					fg = beautiful.yellow,
+					widget = wibox.container.background,
 				},
-				weather_widget,
+
+				{
+					-- weather
+					weather_widget,
+					fg = beautiful.blue,
+					widget = wibox.container.background,
+				},
 				spacing_widget = separator,
 				spacing = 20,
 				layout = wibox.layout.fixed.horizontal,
