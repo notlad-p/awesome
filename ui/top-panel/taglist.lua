@@ -40,7 +40,7 @@ M.setup = function(s)
 
 		-- if selected tag
 		if tag.selected then
-			checkbox.color = beautiful.fg
+			checkbox.color = beautiful.cyan
 
 			-- if selected and contains no clients, don't check
 			if #tag:clients() == 0 then
@@ -51,10 +51,10 @@ M.setup = function(s)
 		-- if contains clients and not selected, check & grey
 		elseif #tag:clients() > 0 then
 			checkbox.checked = true
-			checkbox.color = beautiful.grey
+			checkbox.color = beautiful.dark_cyan
 		-- if no clients and not selected, unchecked & grey
 		else
-			checkbox.color = beautiful.grey
+			checkbox.color = beautiful.dark_cyan
 			checkbox.checked = false
 		end
 	end
