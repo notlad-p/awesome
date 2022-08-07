@@ -2,6 +2,8 @@ local wibox = require("wibox")
 local filesystem = require("gears.filesystem")
 local awful = require("awful")
 local naughty = require("naughty")
+local beautiful = require("beautiful")
+local gears = require("gears")
 
 local json = require("module.json")
 
@@ -48,17 +50,40 @@ M.setup = function()
 
 	local weather_widget = wibox.widget({
 		{
-			icon_widget,
-			top = 7,
-			bottom = 7,
-			widget = wibox.container.margin,
+			{
+				{
+					icon_widget,
+					widget = wibox.container.margin,
+					left = 5,
+					right = 5,
+					top = 5,
+					bottom = 5,
+				},
+				bg = beautiful.bg_blue,
+				widget = wibox.container.background,
+				shape = function(cr, width, height)
+					gears.shape.partially_rounded_rect(cr, width, height, true, false, false, true, 7)
+				end,
+			},
+			{
+				{
+					temp_widget,
+					fg = beautiful.bg_blue,
+					widget = wibox.container.background,
+				},
+				widget = wibox.container.margin,
+				top = 5,
+				bottom = 5,
+				right = 10,
+				left = 10,
+			},
+			widget = wibox.layout.align.horizontal,
 		},
-		{
-			temp_widget,
-			left = 5,
-			widget = wibox.container.margin,
-		},
-		widget = wibox.layout.align.horizontal,
+		bg = beautiful.bg_3,
+		widget = wibox.container.background,
+		shape = function(cr, width, height)
+			gears.shape.rounded_rect(cr, width, height, 7)
+		end,
 	})
 
 	local function show_warning(message)
