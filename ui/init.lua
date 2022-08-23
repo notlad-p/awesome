@@ -2,6 +2,7 @@ local awful = require("awful")
 
 local top_panel = require("ui.top-panel")
 local set_wallpaper = require("ui.wallpaper").set_wallpaper
+local toggle_panel = require("ui.toggle-panel")
 
 local M = {}
 
@@ -13,6 +14,7 @@ M.setup = function()
 		-- Wallpaper
 		set_wallpaper(s)
 		top_panel(s)
+		toggle_panel(s)
 	end)
 end
 

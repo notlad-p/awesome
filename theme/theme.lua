@@ -68,6 +68,14 @@ theme.wibar_bg = "#00000000"
 theme.wibar_fg = theme.fg
 -- theme.wibar_opacity = 0.5
 
+-- toggle panel
+theme.margin_outside = 24
+theme.margin_inside = 16
+-- profile picture
+theme.pfp = user_config_path .. "theme/images/pfp.png"
+-- icons
+theme.power_icon = user_config_path .. "theme/icons/power-icon.svg"
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
