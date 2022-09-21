@@ -21,7 +21,7 @@ return function()
 
 	-- set uptime markdown in days:hours:minutes
 	local update_uptime = function()
-		awful.spawn.easy_async_with_shell("uptime | cut -d ' ' -f 5 | tr -d ','", function(stdout)
+		awful.spawn.easy_async_with_shell("uptime | awk -F'( )' '{print $4}' | tr -d ','", function(stdout)
 			uptime:set_markup('<span size="8pt">Uptime - ' .. stdout .. "</span>")
 		end)
 	end

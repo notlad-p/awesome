@@ -7,12 +7,15 @@ local dpi = xresources.apply_dpi
 
 return function(s)
 	local profile = require("ui.toggle-panel.profile")()
-	local buttons = require("ui.toggle-panel.buttons")()
+	local buttons = require("ui.toggle-panel.buttons")(s)
+	local sliders = require("ui.toggle-panel.sliders")
 
 	local settings = wibox.widget({
 		{
 			profile,
 			buttons,
+			sliders,
+			-- test_container,
 			expand = false,
 			layout = wibox.layout.align.vertical,
 		},

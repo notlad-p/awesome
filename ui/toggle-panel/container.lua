@@ -5,7 +5,6 @@ local gears = require("gears")
 ---container for toggle_panel widgets
 ---@param widget table
 ---@param container_width number
----@param margin_bottom boolean
 ---@return table
 return function(widget, container_width)
 	local container = wibox.widget({
