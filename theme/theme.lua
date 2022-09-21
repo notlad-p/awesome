@@ -14,25 +14,37 @@ local theme = {}
 
 -- ONEDARK THEME
 theme.bg_0 = "#1a212e"
+-- theme.test = "#19212f"
 -- theme.bg1 = "#21283b"
 -- theme.bg2 = "#283347"
 theme.bg_3 = "#2a324a"
 theme.bg_d = "#141b24"
+-- theme.test = "#121b25"
 -- theme.bg_yellow = "#f2cc81"
 theme.bg_blue = "#54b0fd"
 
 theme.fg = "#93a4c3"
+theme.test = "#90a4c6"
 
 theme.black = "#0c0e15"
 theme.grey = "#455574"
 theme.light_grey = "#6c7d9c"
 theme.purple = "#c75ae8"
-theme.green = "#8bcd5b"
+-- theme.test = "#d64cef"
+theme.green = "#8bcd5b" -- 95°, 53%, 58%
+-- theme.test = "#74d046" -- 100°, 59%, 55%
+-- theme.test = "#6ee830"
 -- theme.orange = "#dd9046"
+-- theme.test = "#e98c31"
 theme.blue = "#41a7fc"
+-- theme.test = "#00a8ff"
 theme.yellow = "#efbd5d"
+-- theme.test = "#ffc14d"
+-- theme.test = "#f7bc47"
 theme.cyan = "#34bfd0"
+theme.test = "#00bfcf"
 theme.red = "#f65866"
+-- theme.test = "#ff4761"
 theme.dark_cyan = "#1F737D"
 -- theme.dark_red = "#992525"
 -- theme.dark_yellow = "#8f610d"
@@ -74,7 +86,18 @@ theme.margin_inside = 16
 -- profile picture
 theme.pfp = user_config_path .. "theme/images/pfp.png"
 -- icons
-theme.power_icon = user_config_path .. "theme/icons/power-icon.svg"
+theme.power_icon = user_config_path .. "theme/icons/toggle-panel/power-icon.svg"
+theme.plane = user_config_path .. "theme/icons/toggle-panel/plane.svg"
+theme.plane_toggled = user_config_path .. "theme/icons/toggle-panel/plane-toggled.svg"
+theme.bluetooth = user_config_path .. "theme/icons/toggle-panel/bluetooth.svg"
+theme.bluetooth_toggled = user_config_path .. "theme/icons/toggle-panel/bluetooth-toggled.svg"
+theme.wifi = user_config_path .. "theme/icons/toggle-panel/wifi.svg"
+theme.wifi_toggled = user_config_path .. "theme/icons/toggle-panel/wifi-toggled.svg"
+theme.crop = user_config_path .. "theme/icons/toggle-panel/crop.svg"
+theme.float = user_config_path .. "theme/icons/toggle-panel/float.svg"
+theme.float_toggled = user_config_path .. "theme/icons/toggle-panel/float-toggled.svg"
+theme.notifications = user_config_path .. "theme/icons/toggle-panel/notifications.svg"
+theme.notifications_toggled = user_config_path .. "theme/icons/toggle-panel/notifications-toggled.svg"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -105,6 +128,10 @@ theme.tasklist_plain_task_name = true
 -- taglist style
 theme.taglist_bg_focus = "#00000000"
 theme.taglist_icon_occupied = "#93a4c3"
+
+-- prompt cursor styles
+theme.prompt_bg_cursor = theme.grey
+theme.prompt_fg_cursor = theme.cyan
 
 -- Generate taglist squares: (little squares that indicate if a client is
 -- present in a tag)
@@ -172,6 +199,7 @@ theme.layout_tile = user_config_path .. "theme/icons/layouts/tile.svg"
 theme.layout_tileleft = user_config_path .. "theme/icons/layouts/tile-left.svg"
 theme.layout_tilebottom = user_config_path .. "theme/icons/layouts/tile-bottom.svg"
 theme.layout_tiletop = user_config_path .. "theme/icons/layouts/tile-top.svg"
+theme.layout_floating = user_config_path .. "theme/icons/layouts/float.svg"
 
 -- wibar icons
 theme.music = user_config_path .. "theme/icons/misc/music.svg"
@@ -183,7 +211,6 @@ theme.play = user_config_path .. "theme/icons/misc/play.svg"
 theme.forward = user_config_path .. "theme/icons/misc/forward.svg"
 
 -- theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"
--- theme.layout_floating = themes_path .. "default/layouts/floatingw.png"
 -- theme.layout_magnifier = themes_path .. "default/layouts/magnifierw.png"
 -- theme.layout_spiral = themes_path .. "default/layouts/spiralw.png"
 -- theme.layout_dwindle = themes_path .. "default/layouts/dwindlew.png"
