@@ -98,6 +98,8 @@ theme.float = user_config_path .. "theme/icons/toggle-panel/float.svg"
 theme.float_toggled = user_config_path .. "theme/icons/toggle-panel/float-toggled.svg"
 theme.notifications = user_config_path .. "theme/icons/toggle-panel/notifications.svg"
 theme.notifications_toggled = user_config_path .. "theme/icons/toggle-panel/notifications-toggled.svg"
+-- silders
+theme.volume = user_config_path .. "theme/icons/toggle-panel/volume.svg"
 
 -- There are other variable sets
 -- overriding the default one when
