@@ -1,4 +1,4 @@
-# Awesome WM config
+# Awesome WM custom config
 
 ### Details:
 
