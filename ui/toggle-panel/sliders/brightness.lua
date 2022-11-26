@@ -1,9 +1,10 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
+local beautiful = require("beautiful")
 
 local widgets = require("ui.toggle-panel.sliders.slider")
-local icon = widgets.icon
+local icon = widgets.icon(beautiful.brightness)
 local slider = widgets.slider
 
 local displays = {}
@@ -25,6 +26,20 @@ slider:connect_signal("property::value", function()
 	-- get value
 	local value = slider:get_value()
 
+	-- TODO: check if this for loop works, should change brightness of all screens
 	-- set brightness
-	awful.spawn("amixer set Master " .. value .. "%", false)
+	local percent = value / 100
+	for i, v in ipairs(displays) do
+		-- revDays[v] = i
+		awful.spawn("xrandr --output " .. v .. " --brightness " .. percent)
+	end
 end)
+
+-- container widget
+local brightness = wibox.widget({
+	icon,
+	slider,
+	layout = wibox.layout.align.horizontal,
+})
+
+return brightness

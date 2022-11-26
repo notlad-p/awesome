@@ -23,29 +23,32 @@ local slider = wibox.widget({
 })
 
 -- icon widget
-local icon = wibox.widget({
-	{
+
+local icon = function(image)
+	return wibox.widget({
 		{
 			{
-				forced_height = 16,
-				forced_width = 16,
-				resize = true,
-				image = beautiful.volume,
-				widget = wibox.widget.imagebox,
+				{
+					forced_height = 16,
+					forced_width = 16,
+					resize = true,
+					image = image,
+					widget = wibox.widget.imagebox,
+				},
+				halign = "center",
+				valign = "center",
+				widget = wibox.container.place,
 			},
-			halign = "center",
-			valign = "center",
-			widget = wibox.container.place,
+			forced_height = 32,
+			forced_width = 32,
+			bg = beautiful.bg_3,
+			shape = gears.shape.circle,
+			widget = wibox.container.background,
 		},
-		forced_height = 32,
-		forced_width = 32,
-		bg = beautiful.bg_3,
-		shape = gears.shape.circle,
-		widget = wibox.container.background,
-	},
-	right = 16,
-	widget = wibox.container.margin,
-})
+		right = 16,
+		widget = wibox.container.margin,
+	})
+end
 
 return {
 	icon = icon,

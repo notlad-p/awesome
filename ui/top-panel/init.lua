@@ -3,6 +3,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 
+-- TODO: add battery indicator somewhere
+
 -- import widgets used in top panel
 local taglist = require("ui.top-panel.taglist")
 local tasklist = require("ui.top-panel.tasklist")
@@ -22,7 +24,7 @@ return function(s)
 	s.weather = weather.setup()
 	s.time = time.setup()
 	s.date = date.setup()
-	s.power = power.setup()
+	s.power = power.setup(s)
 
 	s.mywibox = awful.wibar({
 		position = "top",

@@ -1,10 +1,15 @@
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local gears = require("gears")
+local awful = require("awful")
 
 local M = {}
 
-M.setup = function()
+M.setup = function(s)
+	local buttons = gears.table.join(awful.button({}, 1, function()
+		awesome.emit_signal("toggle_panel::toggle", s)
+	end))
+
 	local power = wibox.widget({
 		{
 			{
@@ -29,6 +34,7 @@ M.setup = function()
 		shape = function(cr, width, height)
 			gears.shape.rounded_rect(cr, width, height, 7)
 		end,
+		buttons = buttons,
 	})
 
 	return power

@@ -1,9 +1,10 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
+local beautiful = require("beautiful")
 
 local widgets = require("ui.toggle-panel.sliders.slider")
-local icon = widgets.icon
+local icon = widgets.icon(beautiful.volume)
 local slider = widgets.slider
 
 -- slider event listener

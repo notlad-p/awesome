@@ -100,6 +100,7 @@ theme.notifications = user_config_path .. "theme/icons/toggle-panel/notification
 theme.notifications_toggled = user_config_path .. "theme/icons/toggle-panel/notifications-toggled.svg"
 -- silders
 theme.volume = user_config_path .. "theme/icons/toggle-panel/volume.svg"
+theme.brightness = user_config_path .. "theme/icons/toggle-panel/brightness.svg"
 
 -- There are other variable sets
 -- overriding the default one when

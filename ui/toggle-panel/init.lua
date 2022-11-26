@@ -49,8 +49,8 @@ return function(s)
 		type = "dock",
 		screen = s,
 		ontop = true,
-		visible = false,
-		-- visible = true,
+		-- visible = false,
+		visible = true,
 		-- maximum_width = dpi(30),
 		-- maximum_height = dpi(30),
 		placement = function(w)
@@ -73,4 +73,11 @@ return function(s)
 			widget = wibox.container.background,
 		},
 	})
+
+	-- toggle visibility
+	awesome.connect_signal("toggle_panel::toggle", function(scr)
+		if scr == s then
+			s.toggle_panel.visible = not s.toggle_panel.visible
+		end
+	end)
 end
