@@ -6,7 +6,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 return function(s)
-	local profile = require("ui.toggle-panel.profile")()
+	local profile = require("ui.toggle-panel.profile")(s)
 	local buttons = require("ui.toggle-panel.buttons")(s)
 	local sliders = require("ui.toggle-panel.sliders")
 
@@ -46,11 +46,12 @@ return function(s)
 	})
 
 	s.toggle_panel = awful.popup({
+		-- TODO: change type?
 		type = "dock",
 		screen = s,
 		ontop = true,
-		-- visible = false,
-		visible = true,
+		visible = false,
+		-- visible = true,
 		-- maximum_width = dpi(30),
 		-- maximum_height = dpi(30),
 		placement = function(w)
@@ -77,6 +78,11 @@ return function(s)
 	-- toggle visibility
 	awesome.connect_signal("toggle_panel::toggle", function(scr)
 		if scr == s then
+			-- if power panel is open, close it
+			if s.power_panel.visible then
+				s.power_panel.visible = not s.power_panel.visible
+			end
+
 			s.toggle_panel.visible = not s.toggle_panel.visible
 		end
 	end)

@@ -3,7 +3,7 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local awful = require("awful")
 
-return function()
+return function(s)
 	local profile_name = wibox.widget({
 		markup = "<b>Dalton</b>",
 		widget = wibox.widget.textbox,
@@ -35,6 +35,36 @@ return function()
 			update_uptime()
 		end,
 	})
+
+	local power = wibox.widget({
+		{
+			{
+				{
+					image = beautiful.power_icon,
+					widget = wibox.widget.imagebox,
+					forced_width = 24,
+					forced_height = 24,
+				},
+				top = 12,
+				right = 12,
+				bottom = 12,
+				left = 12,
+				widget = wibox.container.margin,
+			},
+			widget = wibox.container.background,
+			bg = beautiful.bg_3,
+			shape = function(cr, width, height)
+				gears.shape.rounded_rect(cr, width, height, 7)
+			end,
+		},
+		widget = wibox.container.margin,
+		top = 11,
+		bottom = 11,
+	})
+
+	power:buttons(gears.table.join(awful.button({}, 1, nil, function()
+		awesome.emit_signal("power_panel::toggle", s)
+	end)))
 
 	local container = require("ui.toggle-panel.container")
 	local profile = wibox.widget({
@@ -73,31 +103,7 @@ return function()
 		},
 		-- power button
 		-- TODO: add toggle exit screen
-		{
-			{
-				{
-					{
-						image = beautiful.power_icon,
-						widget = wibox.widget.imagebox,
-						forced_width = 24,
-						forced_height = 24,
-					},
-					top = 12,
-					right = 12,
-					bottom = 12,
-					left = 12,
-					widget = wibox.container.margin,
-				},
-				widget = wibox.container.background,
-				bg = beautiful.bg_3,
-				shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, 7)
-				end,
-			},
-			widget = wibox.container.margin,
-			top = 11,
-			bottom = 11,
-		},
+		power,
 		layout = wibox.layout.align.horizontal,
 	})
 
