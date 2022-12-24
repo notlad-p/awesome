@@ -38,10 +38,10 @@ M.setup = function()
 			awful.client.swap.byidx(-1)
 		end, { description = "swap with previous client by index", group = "client" }),
 
-		awful.key({ modkey, "Control" }, "j", function()
+		awful.key({ modkey, "Control" }, "h", function()
 			awful.screen.focus_relative(1)
 		end, { description = "focus the next screen", group = "screen" }),
-		awful.key({ modkey, "Control" }, "k", function()
+		awful.key({ modkey, "Control" }, "l", function()
 			awful.screen.focus_relative(-1)
 		end, { description = "focus the previous screen", group = "screen" }),
 
