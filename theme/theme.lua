@@ -6,6 +6,7 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+local gears = require("gears")
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 local user_config_path = gfs.get_configuration_dir()
@@ -86,7 +87,6 @@ theme.margin_inside = 16
 -- profile picture
 theme.pfp = user_config_path .. "theme/images/pfp.png"
 -- icons
-theme.power_icon = user_config_path .. "theme/icons/toggle-panel/power-icon.svg"
 theme.plane = user_config_path .. "theme/icons/toggle-panel/plane.svg"
 theme.plane_toggled = user_config_path .. "theme/icons/toggle-panel/plane-toggled.svg"
 theme.bluetooth = user_config_path .. "theme/icons/toggle-panel/bluetooth.svg"
@@ -143,8 +143,12 @@ theme.prompt_fg_cursor = theme.cyan
 -- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
+theme.notification_bg = theme.bg_d
+theme.notification_fg = theme.fg
+theme.notification_shape = function(cr, width, height)
+	gears.shape.rounded_rect(cr, width, height, 10)
+end
 -- notification_font
--- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
@@ -194,6 +198,9 @@ theme.titlebar_maximized_button_focus_active = user_config_path .. "theme/icons/
 -- set wallpaper
 theme.wallpaper = user_config_path .. "theme/wallpapers/1.jpg"
 
+-- add other images
+theme.logout_image = user_config_path .. "theme/wallpapers/girl-with-umbrella.jpg"
+
 -- You can use your own layout icons like this:
 theme.layout_fairv = user_config_path .. "theme/icons/layouts/fair.svg"
 theme.layout_max = user_config_path .. "theme/icons/layouts/maximize.svg"
@@ -212,6 +219,13 @@ theme.power = user_config_path .. "theme/icons/misc/power.svg"
 theme.backward = user_config_path .. "theme/icons/misc/backward.svg"
 theme.play = user_config_path .. "theme/icons/misc/play.svg"
 theme.forward = user_config_path .. "theme/icons/misc/forward.svg"
+
+-- power panel icons
+theme.power_light = user_config_path .. "theme/icons/misc/power-light.svg"
+theme.lock = user_config_path .. "theme/icons/power-panel/lock.svg"
+theme.logout = user_config_path .. "theme/icons/power-panel/logout.svg"
+theme.restart = user_config_path .. "theme/icons/power-panel/restart.svg"
+theme.sleep = user_config_path .. "theme/icons/power-panel/sleep.svg"
 
 -- theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"
 -- theme.layout_magnifier = themes_path .. "default/layouts/magnifierw.png"
