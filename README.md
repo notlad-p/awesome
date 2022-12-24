@@ -9,6 +9,7 @@
 - Make sure the following packages are installed
   - scrot - for screenshots
   - nmcli - for toggling airplane mode, Bluetooth and Wi-Fi
+  - playerctl - for music player
 
 ### Configure
 
@@ -22,3 +23,14 @@
 - Screenshot buttons and key binds will have a pop-up to name the image
   - You can include the file type like `.jpeg` but if it's not provided `scrot` will default to `.PNG`
   - Use `Escape` or `Control c` to cancel the screenshot when the pop-up is visible
+
+### Todo
+
+- Finish `power_panel`: Lock, Logout, Suspend, Reboot, Shutdown buttons (use rofi lib for inspo / logic)
+- Add logic for `weather_widget` to be optional if config is missing
+- Fix uptime in `profile.lua` (use [rofi](https://github.com/adi1090x/rofi) lib for logic)
+- Add config for lock screen command in `power-panel`
+
+#### Docs todo
+
+- How to change wallpaper / logout image
