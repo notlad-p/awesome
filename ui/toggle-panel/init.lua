@@ -9,15 +9,17 @@ return function(s)
 	local profile = require("ui.toggle-panel.profile")(s)
 	local buttons = require("ui.toggle-panel.buttons")(s)
 	local sliders = require("ui.toggle-panel.sliders")
+	local music = require("ui.toggle-panel.music")
 
 	local settings = wibox.widget({
 		{
 			profile,
 			buttons,
 			sliders,
+			music,
 			-- test_container,
-			expand = false,
-			layout = wibox.layout.align.vertical,
+			expand = true,
+			layout = wibox.layout.fixed.vertical,
 		},
 		widget = wibox.container.margin,
 		top = beautiful.margin_outside,

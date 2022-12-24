@@ -40,7 +40,7 @@ return function(s)
 		{
 			{
 				{
-					image = beautiful.power_icon,
+					image = beautiful.power_light,
 					widget = wibox.widget.imagebox,
 					forced_width = 24,
 					forced_height = 24,
