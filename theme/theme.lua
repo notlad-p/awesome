@@ -1,6 +1,9 @@
 ---------------------------
 -- Default awesome theme --
 ---------------------------
+-- TODO: use gears.color.recolor_image to change svg icon colors instead of
+-- using totally different svgs
+-- https://www.reddit.com/r/awesomewm/comments/baga7l/change_color_of_svg_icon/
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -101,6 +104,11 @@ theme.notifications_toggled = user_config_path .. "theme/icons/toggle-panel/noti
 -- silders
 theme.volume = user_config_path .. "theme/icons/toggle-panel/volume.svg"
 theme.brightness = user_config_path .. "theme/icons/toggle-panel/brightness.svg"
+-- music player
+theme.backward_fg = user_config_path .. "theme/icons/toggle-panel/backward.svg"
+theme.play_fg = user_config_path .. "theme/icons/toggle-panel/play.svg"
+theme.forward_fg = user_config_path .. "theme/icons/toggle-panel/forward.svg"
+theme.pause_fg = user_config_path .. "theme/icons/toggle-panel/pause.svg"
 
 -- There are other variable sets
 -- overriding the default one when

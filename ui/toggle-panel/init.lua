@@ -17,8 +17,6 @@ return function(s)
 			buttons,
 			sliders,
 			music,
-			-- test_container,
-			expand = true,
 			layout = wibox.layout.fixed.vertical,
 		},
 		widget = wibox.container.margin,
@@ -54,8 +52,6 @@ return function(s)
 		ontop = true,
 		visible = false,
 		-- visible = true,
-		-- maximum_width = dpi(30),
-		-- maximum_height = dpi(30),
 		placement = function(w)
 			awful.placement.top_right(w, {
 				margins = { top = 46 + 16, right = 15 },
