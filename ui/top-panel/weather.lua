@@ -7,9 +7,6 @@ local gears = require("gears")
 
 local json = require("module.json")
 
--- API key: e56460e598b2a4cec56992ee67c171f6
--- API key (old): 42ebabdd4868e27ab24302546199950b
--- https://api.openweathermap.org/data/2.5/weather?q=apex&appid=e56460e598b2a4cec56992ee67c171f6&units=imperial
 local icon_dir = filesystem.get_configuration_dir() .. "theme/icons/weather/"
 local config = require("configuration.config").widget.weather
 
