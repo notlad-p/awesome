@@ -6,15 +6,18 @@ local gears = require("gears")
 ---@param widget table
 ---@param container_width number
 ---@return table
-return function(widget, container_width)
+return function(widget, container_width, no_margin)
+	-- if `no_margin` don't use default inside margin
+	local margin = no_margin and 0 or beautiful.margin_inside
+
 	local container = wibox.widget({
 		{
 			{
 				widget,
-				top = beautiful.margin_inside,
-				right = beautiful.margin_inside,
-				bottom = beautiful.margin_inside,
-				left = beautiful.margin_inside,
+				top = margin,
+				right = margin,
+				bottom = margin,
+				left = margin,
 				widget = wibox.container.margin,
 			},
 			shape = function(cr, width, height)
