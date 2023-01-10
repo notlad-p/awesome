@@ -2,9 +2,9 @@
 
 This config is a work in progress and will look like the below images when finished.
 
-![home](https://user-images.githubusercontent.com/54220748/211545701-f3ecd6d9-e2ef-470b-8715-2bc97f66f138.jpg)
+![home](https://user-images.githubusercontent.com/54220748/211547530-f673afa3-c5f9-4b48-9618-039b75a0f787.jpg)
 
-![toggle-panel](https://user-images.githubusercontent.com/54220748/211545757-aef64273-852b-4cf2-98fb-7036bd3b1035.jpg)
+![toggle panel](https://user-images.githubusercontent.com/54220748/211547601-cb37cdd5-0f78-4aae-8660-49010c870e00.jpg)
 
 ### Details:
 
@@ -13,6 +13,7 @@ This config is a work in progress and will look like the below images when finis
 
 ### Install
 
+- You will need to install the latest [awesomewm-git](https://github.com/awesomeWM/awesome) version
 - Make sure the following packages are installed
   - scrot - for screenshots
   - nmcli - for toggling airplane mode, Bluetooth and Wi-Fi
