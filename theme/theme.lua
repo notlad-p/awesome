@@ -1,62 +1,32 @@
 ---------------------------
 -- Default awesome theme --
 ---------------------------
--- TODO: use gears.color.recolor_image to change svg icon colors instead of
+-- TODO: CHANGE ALL SVG ICONS TO USE GEARS.COLOR - put all icons in icons/
+-- directory
+-- use gears.color.recolor_image to change svg icon colors instead of
 -- using totally different svgs
 -- https://www.reddit.com/r/awesomewm/comments/baga7l/change_color_of_svg_icon/
 
-local theme_assets = require("beautiful.theme_assets")
-local xresources = require("beautiful.xresources")
+local theme_assets = require "beautiful.theme_assets"
+local xresources = require "beautiful.xresources"
 local dpi = xresources.apply_dpi
 
-local gears = require("gears")
-local gfs = require("gears.filesystem")
+local gears = require "gears"
+local gfs = require "gears.filesystem"
 local themes_path = gfs.get_themes_dir()
 local user_config_path = gfs.get_configuration_dir()
 
 local theme = {}
 
--- ONEDARK THEME
-theme.bg_0 = "#1a212e"
--- theme.test = "#19212f"
--- theme.bg1 = "#21283b"
--- theme.bg2 = "#283347"
-theme.bg_3 = "#2a324a"
-theme.bg_d = "#141b24"
--- theme.test = "#121b25"
--- theme.bg_yellow = "#f2cc81"
-theme.bg_blue = "#54b0fd"
+-- selected colorscheme
+local colorscheme = "gruvbox"
 
-theme.fg = "#93a4c3"
-theme.test = "#90a4c6"
-
-theme.black = "#0c0e15"
-theme.grey = "#455574"
-theme.light_grey = "#6c7d9c"
-theme.purple = "#c75ae8"
--- theme.test = "#d64cef"
-theme.green = "#8bcd5b" -- 95°, 53%, 58%
--- theme.test = "#74d046" -- 100°, 59%, 55%
--- theme.test = "#6ee830"
--- theme.orange = "#dd9046"
--- theme.test = "#e98c31"
-theme.blue = "#41a7fc"
--- theme.test = "#00a8ff"
-theme.yellow = "#efbd5d"
--- theme.test = "#ffc14d"
--- theme.test = "#f7bc47"
-theme.cyan = "#34bfd0"
-theme.test = "#00bfcf"
-theme.red = "#f65866"
--- theme.test = "#ff4761"
-theme.dark_cyan = "#1F737D"
--- theme.dark_red = "#992525"
--- theme.dark_yellow = "#8f610d"
--- theme.dark_purple = "#862aa1"
--- theme.diff_add = "#27341c"
--- theme.diff_delete = "#331c1e"
--- theme.diff_change = "#102b40"
--- theme.diff_text = "#1c4a6e"
+-- get colorscheme values & set them in theme table
+local schemes = require "theme.colorschemes"
+local selected_scheme = schemes[colorscheme]
+for key, value in pairs(selected_scheme) do
+  theme[key] = value
+end
 
 theme.font = "FiraCode NF 8.5"
 
@@ -151,11 +121,11 @@ theme.prompt_fg_cursor = theme.cyan
 -- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
-theme.notification_bg = theme.bg_d
-theme.notification_fg = theme.fg
-theme.notification_shape = function(cr, width, height)
-	gears.shape.rounded_rect(cr, width, height, 10)
-end
+-- theme.notification_bg = theme.bg_d
+-- theme.notification_fg = theme.fg
+-- theme.notification_shape = function(cr, width, height)
+-- 	gears.shape.rounded_rect(cr, width, height, 10)
+-- end
 -- notification_font
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
@@ -204,7 +174,7 @@ theme.titlebar_maximized_button_normal_active = user_config_path .. "theme/icons
 theme.titlebar_maximized_button_focus_active = user_config_path .. "theme/icons/titlebar/maximize-active.svg"
 
 -- set wallpaper
-theme.wallpaper = user_config_path .. "theme/wallpapers/1.jpg"
+theme.wallpaper = user_config_path .. "theme/wallpapers/2.jpg"
 
 -- add other images
 theme.logout_image = user_config_path .. "theme/wallpapers/girl-with-umbrella.jpg"
