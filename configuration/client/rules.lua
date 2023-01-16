@@ -1,80 +1,76 @@
-local awful = require("awful")
-local beautiful = require("beautiful")
+local awful = require "awful"
+local beautiful = require "beautiful"
+local ruled = require "ruled"
 
-local clientkeys = require("configuration.client.keys")
-local clientbuttons = require("configuration.client.buttons")
+local clientkeys = require "configuration.client.keys"
+local clientbuttons = require "configuration.client.buttons"
 
--- {{{ Rules
--- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = {
-	-- All clients will match this rule.
-	{
-		rule = {},
-		properties = {
-			border_width = beautiful.border_width,
-			border_color = beautiful.border_normal,
-			focus = awful.client.focus.filter,
-			raise = true,
-			keys = clientkeys,
-			buttons = clientbuttons,
-			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
-		},
-	},
+ruled.client.connect_signal("request::rules", function()
+  -- @DOC_GLOBAL_RULE@
+  -- All clients will match this rule.
+  ruled.client.append_rule {
+    id = "global",
+    rule = {},
+    properties = {
+      -- defaults
+      focus = awful.client.focus.filter,
+      raise = true,
+      screen = awful.screen.preferred,
+      placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+      -- keys & buttons
+      keys = clientkeys,
+      buttons = clientbuttons,
+    },
+  }
 
-	-- Floating clients.
-	{
-		rule_any = {
-			instance = {
-				"DTA", -- Firefox addon DownThemAll.
-				"copyq", -- Includes session name in class.
-				"pinentry",
-			},
-			class = {
-				"Arandr",
-				"Blueman-manager",
-				"Gpick",
-				"Kruler",
-				"MessageWin", -- kalarm.
-				"Sxiv",
-				"Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-				"Wpa_gui",
-				"veromix",
-				"xtightvncviewer",
-			},
+  -- @DOC_FLOATING_RULE@
+  -- Floating clients.
+  ruled.client.append_rule {
+    id = "floating",
+    rule_any = {
+      instance = { "copyq", "pinentry" },
+      class = {
+        "Arandr",
+        "Blueman-manager",
+        "Gpick",
+        "Kruler",
+        "Sxiv",
+        "Tor Browser",
+        "Wpa_gui",
+        "veromix",
+        "xtightvncviewer",
+      },
+      -- Note that the name property shown in xprop might be set slightly after creation of the client
+      -- and the name shown there might not match defined rules here.
+      name = {
+        "Event Tester", -- xev.
+      },
+      role = {
+        "AlarmWindow", -- Thunderbird's calendar.
+        "ConfigManager", -- Thunderbird's about:config.
+        "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+      },
+    },
+    properties = { floating = true },
+  }
 
-			-- Note that the name property shown in xprop might be set slightly after creation of the client
-			-- and the name shown there might not match defined rules here.
-			name = {
-				"Event Tester", -- xev.
-			},
-			role = {
-				"AlarmWindow", -- Thunderbird's calendar.
-				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
-			},
-		},
-		properties = { floating = true },
-	},
+  -- @DOC_DIALOG_RULE@
+  -- Add titlebars to normal clients and dialogs
+  ruled.client.append_rule {
+    -- @DOC_CSD_TITLEBARS@
+    id = "titlebars",
+    rule_any = { type = { "normal", "dialog" } },
+    properties = { titlebars_enabled = true },
+  }
 
-	-- Add titlebars to normal clients and dialogs
-	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
+  -- scratch pad rules
 
-	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
-}
--- }}}
-
--- {{{ Signals
--- Signal function to execute when a new client appears.
-client.connect_signal("manage", function(c)
-	-- Set the windows at the slave,
-	-- i.e. put it at the end of others instead of setting it master.
-	-- if not awesome.startup then awful.client.setslave(c) end
-
-	if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
-		-- Prevent clients from being unreachable after screen count changes.
-		awful.placement.no_offscreen(c)
-	end
+  ruled.client.append_rule {
+    rule_any = {
+      class = {
+        "spad",
+      },
+    },
+    properties = { floating = true, placement = awful.placement.centered },
+  }
 end)
