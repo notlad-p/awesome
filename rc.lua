@@ -20,6 +20,9 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 -- setup layouts (needs to come before 'ui')
 require "configuration.layouts"
 
+-- setup wallpaper
+require "theme.wallpaper"
+
 -- set up ui
 require("ui").setup()
 
