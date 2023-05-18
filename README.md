@@ -22,9 +22,14 @@ This config is a work in progress and will look like the below images when finis
 ### Configure
 
 - Rename `configuration/sample-config.lua` to `configuration/config.lua` and fill out fields like API keys
+- The default apps like terminal and browser are located in the `configuration/apps.lua` file.
+  - Startup apps / commands are also in this file.
+  - _Make sure to change or remove the `xrandr` command to fit your screens_
+
+### Customize
+
 - Customize profile picture by replacing `/theme/images/pfp.jpeg` and changing `theme.pfp` in `/theme/theme.lua`
   - Make sure the image is 70px by 70px for it to fit right
-- The default apps like terminal and browser are located in the `configuration/apps.lua` file. Startup apps / commands are also in this file.
 - You can change the color scheme using the `colorscheme` variable in `theme/theme.lua`
 
 ### Usage
@@ -35,17 +40,24 @@ This config is a work in progress and will look like the below images when finis
 
 ### Todo
 
-- Add logic for `weather_widget` to be optional if config is missing
-- Fix uptime in `profile.lua` (use [rofi](https://github.com/adi1090x/rofi) lib for logic)
-- Add config for lock screen command in `power-panel`
-- Add 'run' widget for running quick commmands
-  - https://github.com/streetturtle/awesome-wm-widgets/tree/master/run-shell-3
-- Add 'to do' widget / panel - [todo-widget](https://github.com/streetturtle/awesome-wm-widgets/tree/master/todo-widget)
+- ADD KEYBIND FOR SKIPPING & PAUSING SONGS
+- Update to new apis for awesome-git
+
+- Recolor images:
+
+  - Toggle panel buttons
+  - ALL ICONS
+
 - Finish toggle panel:
   - Music widget
   - Sliders - fix volume being displayed at 0 on startup
-- Add theme switcher / ability to change theme from .Xresources
+- Add theme switcher / ability to change theme from .Xresources?
 - Add animations with [rubato](https://github.com/andOrlando/rubato)
+
+- Add logic for `weather_widget` to be optional if config is missing
+- Fix uptime in `profile.lua` (use [rofi](https://github.com/adi1090x/rofi) lib for logic)
+- Add config for lock screen command in `power-panel`
+- Add 'to do' scratchpad widget / panel - [todo-widget](https://github.com/streetturtle/awesome-wm-widgets/tree/master/todo-widget)
 
 ### Inspiration:
 
