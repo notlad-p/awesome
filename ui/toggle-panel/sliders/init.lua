@@ -7,9 +7,8 @@ local container = require("ui.toggle-panel.container")
 local volume = require("ui.toggle-panel.sliders.volume")
 
 local slider_container = wibox.widget({
-	volume,
-	-- expand = "none",
-	layout = wibox.layout.align.vertical,
+  volume,
+  layout = wibox.layout.align.vertical,
 })
 
 return container(slider_container, 310)

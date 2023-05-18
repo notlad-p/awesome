@@ -9,8 +9,7 @@ local M = {}
 -- TODO: upgrade to new api's, use github rc.lua as refrence:
 -- https://github.com/awesomeWM/awesome/blob/master/awesomerc.lua
 M.setup = function()
-  awful.screen.connect_for_each_screen(function(s)
-    -- panels
+  screen.connect_signal("request::desktop_decoration", function(s)
     top_panel(s)
     toggle_panel(s)
     power_panel(s)
