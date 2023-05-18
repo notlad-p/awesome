@@ -73,4 +73,14 @@ ruled.client.connect_signal("request::rules", function()
     },
     properties = { floating = true, placement = awful.placement.centered },
   }
+
+  ruled.client.append_rule {
+    rule_any = {
+      class = {
+        "floating_file_explorer",
+      },
+    },
+    properties = { floating = true, width = 1000, height = 640, placement = awful.placement.centered },
+  }
+
 end)

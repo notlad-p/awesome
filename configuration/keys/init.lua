@@ -1,4 +1,5 @@
 local awful = require "awful"
+local naughty = require "naughty"
 local gears = require "gears"
 local hotkeys_popup = require "awful.hotkeys_popup"
 local filesystem = require "gears.filesystem"
@@ -91,10 +92,10 @@ M.setup = function()
     awful.key({ modkey, "Shift" }, "l", function()
       awful.tag.incnmaster(-1, nil, true)
     end, { description = "decrease the number of master clients", group = "layout" }),
-    awful.key({ modkey, "Control" }, "h", function()
+    awful.key({ modkey, "Control" }, "=", function()
       awful.tag.incncol(1, nil, true)
     end, { description = "increase the number of columns", group = "layout" }),
-    awful.key({ modkey, "Control" }, "l", function()
+    awful.key({ modkey, "Control" }, "-", function()
       awful.tag.incncol(-1, nil, true)
     end, { description = "decrease the number of columns", group = "layout" }),
 
@@ -113,10 +114,28 @@ M.setup = function()
       end
     end, { description = "restore minimized", group = "client" }),
 
-    -- toggle scratch pad
-    awful.key({ modkey }, "t", function()
+    -- toggle terminal scratch pad
+    awful.key({ modkey }, "\\", function()
       term_scratch:toggle()
-    end, { description = "toggle scratchpad", group = "client" }),
+    end, { description = "toggle terminal scratchpad", group = "client" }),
+    -- toggle floating file explorer
+    awful.key({ modkey }, "e", function()
+      local focused_client = client.focus
+      if focused_client then
+        if focused_client.class == "floating_file_explorer" then
+          focused_client:kill()
+        else
+          awful.spawn(apps.default.floating_file_explorer)
+        end
+      end
+    end, {
+      description = "toggle floating file explorer",
+      group = "client",
+    }),
+
+    -- awful.key({ modkey, "Shift" }, "e", function()
+    --   awful.spawn(apps.default.file_explorer)
+    -- end, { description = "open file explorer", group = "client" }),
 
     -- Prompt
     -- awful.key({ modkey }, "r", function()

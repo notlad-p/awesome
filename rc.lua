@@ -9,6 +9,9 @@ local beautiful = require "beautiful"
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
+-- TODO: add more tmux keys in help popup
+-- https://awesomewm.org/apidoc/libraries/awful.hotkeys_popup.html
+-- https://awesomewm.org/apidoc/popups_and_bars/awful.hotkeys_popup.widget.html
 require "awful.hotkeys_popup.keys"
 
 -- error handling
@@ -42,3 +45,6 @@ require "configuration.client"
 
 -- MODULES
 require "module.auto-start"
+
+-- rules (with ruled api)
+require "configuration.notifications"
