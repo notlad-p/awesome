@@ -19,6 +19,8 @@ This config is a work in progress and will look like the below images when finis
   - nmcli - for toggling airplane mode, Bluetooth and Wi-Fi
   - playerctl - for music player
 
+Install with `git clone --recurse-submodules https://github.com/notlad-p/awesome.git`
+
 ### Configure
 
 - Rename `configuration/sample-config.lua` to `configuration/config.lua` and fill out fields like API keys
