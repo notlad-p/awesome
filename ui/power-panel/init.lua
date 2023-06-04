@@ -18,7 +18,7 @@ return function(s)
     screen = s,
     ontop = true,
     visible = false,
-    -- placement = awful.placement.centered(s, { attach = true }),
+    placement = awful.placement.centered,
     widget = {
       {
         {
