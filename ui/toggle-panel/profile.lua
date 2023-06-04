@@ -30,14 +30,36 @@ return function(s)
   end)
 
   local uptime = wibox.widget {
-    markup = '<span size="8pt">up 1d, 14h, 49m</span>',
+    markup = '<span size="10pt">up 1d, 14h, 49m</span>',
     widget = wibox.widget.textbox,
   }
 
   -- set uptime markdown in days:hours:minutes
+  local uptime_command = [[bash -c '
+    boot=$(date -d"$(uptime -s)" +%s)
+    now=$(date +%s)
+    s=$((now - boot))
+
+    d=''
+    days=$((s / 60 / 60 / 24))
+    if [ $days -gt 0 ]; then
+      d="${days}d "
+    fi
+
+    h=''
+    hours=$((s / 60 / 60 % 24))
+    if [ $hours -gt 0 ]; then
+      h="${hours}h "
+    fi
+
+    m="$((s / 60 % 60))m"
+
+    printf "$d$h$m"
+  ']]
+
   local update_uptime = function()
-    awful.spawn.easy_async_with_shell("uptime | awk -F'( )' '{print $4}' | tr -d ','", function(stdout)
-      uptime:set_markup('<span size="8pt">Uptime - ' .. stdout .. "</span>")
+    awful.spawn.easy_async_with_shell(uptime_command, function(stdout)
+      uptime:set_markup('<span size="8pt">Uptime: ' .. stdout .. "</span>")
     end)
   end
 
@@ -55,15 +77,12 @@ return function(s)
     {
       {
         profile_name,
-        top = 8,
-        widget = wibox.container.margin,
-      },
-      {
         uptime,
-        bottom = 8,
-        widget = wibox.container.margin,
+        layout = wibox.layout.flex.vertical,
       },
-      layout = wibox.layout.flex.vertical,
+      valign = "bottom",
+      halign = "left",
+      widget = wibox.container.place,
     },
     left = 16,
     widget = wibox.container.margin,
