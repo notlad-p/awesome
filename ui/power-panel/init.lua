@@ -7,11 +7,17 @@ local gears = require "gears"
 return function(s)
   local button = require "ui.power-panel.button"
 
-  local lock = button { image = beautiful.lock, command = "" }
-  local sleep = button { image = beautiful.sleep, command = "systemctl suspend" }
-  local logout = button { image = beautiful.logout, command = "logout" }
-  local restart = button { image = beautiful.restart, command = "systemctl reboot" }
-  local power = button { image = beautiful.power, command = "systemctl poweroff" }
+  local lock_icon = gears.color.recolor_image(beautiful.lock, beautiful.fg)
+  local sleep_icon = gears.color.recolor_image(beautiful.sleep, beautiful.fg)
+  local logout_icon = gears.color.recolor_image(beautiful.logout, beautiful.fg)
+  local restart_icon = gears.color.recolor_image(beautiful.restart, beautiful.fg)
+  local power_icon = gears.color.recolor_image(beautiful.power, beautiful.fg)
+
+  local lock = button { image = lock_icon, command = "" }
+  local sleep = button { image = sleep_icon, command = "systemctl suspend" }
+  local logout = button { image = logout_icon, command = "logout" }
+  local restart = button { image = restart_icon, command = "systemctl reboot" }
+  local power = button { image = power_icon, command = "systemctl poweroff" }
 
   s.power_panel = awful.popup {
     type = "popup_menu",
