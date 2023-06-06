@@ -88,11 +88,12 @@ return function(s)
     widget = wibox.container.margin,
   }
 
+  local power_icon = gears.color.recolor_image(beautiful.power, beautiful.fg)
   local power = wibox.widget {
     {
       {
         {
-          image = beautiful.power,
+          image = power_icon,
           widget = wibox.widget.imagebox,
           forced_width = 24,
           forced_height = 24,
