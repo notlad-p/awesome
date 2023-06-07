@@ -57,6 +57,9 @@ return function(s)
         margins = { top = 46 + 16, right = 15 },
       })
     end,
+    shape = function(cr, width, height)
+      gears.shape.rounded_rect(cr, width, height, 10)
+    end,
     widget = {
       {
         settings,
