@@ -25,6 +25,7 @@ local slider = wibox.widget({
 -- icon widget
 
 local icon = function(image)
+  local recolored_image = gears.color.recolor_image(image, beautiful.fg)
 	return wibox.widget({
 		{
 			{
@@ -32,7 +33,7 @@ local icon = function(image)
 					forced_height = 16,
 					forced_width = 16,
 					resize = true,
-					image = image,
+					image = recolored_image,
 					widget = wibox.widget.imagebox,
 				},
 				halign = "center",
