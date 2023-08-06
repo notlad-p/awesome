@@ -40,27 +40,6 @@ Install with `git clone --recurse-submodules https://github.com/notlad-p/awesome
   - You can include the file type like `.jpeg` but if it's not provided `scrot` will default to `.PNG`
   - Use `Escape` or `Control c` to cancel the screenshot when the pop-up is visible
 
-### Todo
-
-- ADD KEYBIND FOR SKIPPING & PAUSING SONGS
-- Update to new apis for awesome-git
-
-- Recolor images:
-
-  - Toggle panel buttons
-  - ALL ICONS
-
-- Finish toggle panel:
-  - Music widget
-  - Sliders - fix volume being displayed at 0 on startup
-- Add theme switcher / ability to change theme from .Xresources?
-- Add animations with [rubato](https://github.com/andOrlando/rubato)
-
-- Add logic for `weather_widget` to be optional if config is missing
-- Fix uptime in `profile.lua` (use [rofi](https://github.com/adi1090x/rofi) lib for logic)
-- Add config for lock screen command in `power-panel`
-- Add 'to do' scratchpad widget / panel - [todo-widget](https://github.com/streetturtle/awesome-wm-widgets/tree/master/todo-widget)
-
 ### Inspiration:
 
 - [stardust-kyun/dotfiles](https://github.com/Stardust-kyun/dotfiles)
