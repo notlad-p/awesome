@@ -17,7 +17,7 @@ local colorscheme = "gruvbox"
 -- wallpaper
 theme.wallpaper = user_config_path .. "images/wallpapers/2.jpg"
 -- font
-theme.font = "FiraCode NF 8.5"
+theme.font = "Liga SFMono Nerd Font Bold 10"
 
 ----------------------
 -- COLORS & WIDGETS
@@ -160,6 +160,7 @@ local custom_icons = {
   "clock",
   -- time = "clock", -- The clock icon will need to be referenced as `time` now
   "crop",
+  "diamond",
   "float",
   "forward",
   "music",
