@@ -2,48 +2,12 @@ local awful = require "awful"
 local wibox = require "wibox"
 local beautiful = require "beautiful"
 local gears = require "gears"
-local xresources = require "beautiful.xresources"
-local dpi = xresources.apply_dpi
 
 return function(s)
-  local profile = require "ui.toggle-panel.profile"(s)
-  local buttons = require "ui.toggle-panel.buttons"(s)
-  local sliders = require "ui.toggle-panel.sliders"
+  local profile = require "ui.toggle-panel.profile" (s)
+  local buttons = require "ui.toggle-panel.buttons" (s)
+  s.sliders = require "ui.toggle-panel.sliders" (s)
   local music = require "ui.toggle-panel.music"
-
-  local settings = wibox.widget {
-    {
-      profile,
-      buttons,
-      sliders,
-      music,
-      layout = wibox.layout.fixed.vertical,
-    },
-    widget = wibox.container.margin,
-    top = beautiful.margin_outside,
-    right = beautiful.margin_outside,
-    bottom = beautiful.margin_outside,
-    left = beautiful.margin_outside,
-  }
-
-  local info = wibox.widget {
-    {
-      {
-        markup = "1s",
-        widget = wibox.widget.textbox,
-      },
-      {
-        markup = "2s",
-        widget = wibox.widget.textbox,
-      },
-      layout = wibox.layout.fixed.vertical,
-    },
-    widget = wibox.container.margin,
-    top = beautiful.margin_outside,
-    right = beautiful.margin_outside,
-    bottom = beautiful.margin_outside,
-    left = 0,
-  }
 
   s.toggle_panel = awful.popup {
     -- TODO: change type?
@@ -62,8 +26,41 @@ return function(s)
     end,
     widget = {
       {
-        settings,
-        info,
+        -- quick settings
+        {
+          {
+            profile,
+            buttons,
+            s.sliders,
+            music,
+            layout = wibox.layout.fixed.vertical,
+            spacing = 12,
+          },
+          widget = wibox.container.margin,
+          top = beautiful.margin_outside,
+          right = beautiful.margin_outside,
+          bottom = beautiful.margin_outside,
+          left = beautiful.margin_outside,
+        },
+        -- info widgets
+        {
+          {
+            {
+              markup = "1s",
+              widget = wibox.widget.textbox,
+            },
+            {
+              markup = "2s",
+              widget = wibox.widget.textbox,
+            },
+            layout = wibox.layout.fixed.vertical,
+          },
+          widget = wibox.container.margin,
+          top = beautiful.margin_outside,
+          right = beautiful.margin_outside,
+          bottom = beautiful.margin_outside,
+          left = 0,
+        },
         layout = wibox.layout.fixed.horizontal,
       },
       bg = beautiful.bg_d,
