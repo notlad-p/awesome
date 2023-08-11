@@ -3,13 +3,11 @@ local gears = require "gears"
 local wibox = require "wibox"
 local beautiful = require "beautiful"
 
-local widgets = require "ui.toggle-panel.sliders.slider"
-local icon = widgets.icon(beautiful.volume)
-local slider = widgets.slider
+local slider = require "ui.toggle-panel.sliders.slider" ()
+local icon = require "ui.toggle-panel.sliders.slider-icon" (beautiful.volume)
 
 -- slider event listener
 slider:connect_signal("property::value", function()
-  -- get value
   local value = slider:get_value()
 
   -- set master volume
@@ -54,7 +52,6 @@ end
 icon:buttons(gears.table.join(awful.button({}, 1, nil, function()
   volume_button_action()
 end)))
-
 
 -- container widget
 local volume = wibox.widget {
