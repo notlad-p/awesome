@@ -16,8 +16,11 @@ local theme = {}
 local colorscheme = "gruvbox"
 -- wallpaper
 theme.wallpaper = user_config_path .. "images/wallpapers/2.jpg"
+
 -- font
-theme.font = "Liga SFMono Nerd Font Bold 10"
+-- theme.font_name = "Liga SFMono Nerd Font Bold"
+theme.font_name = "Inter SemiBold"
+theme.font = theme.font_name .. " 10"
 
 ----------------------
 -- COLORS & WIDGETS
@@ -163,6 +166,7 @@ local custom_icons = {
   "diamond",
   "float",
   "forward",
+  "microphone",
   "music",
   "notifications",
   "pause",
