@@ -6,8 +6,12 @@ local gears = require "gears"
 return function(s)
   local profile = require "ui.toggle-panel.profile" (s)
   local buttons = require "ui.toggle-panel.buttons" (s)
-  s.sliders = require "ui.toggle-panel.sliders" (s)
+  local sliders = require "ui.toggle-panel.sliders" (s)
   local music = require "ui.toggle-panel.music"
+  local calendar = require "ui.toggle-panel.calendar"
+  local weather = require "ui.toggle-panel.weather"
+
+  local widget_spacing = 18
 
   s.toggle_panel = awful.popup {
     -- TODO: change type?
@@ -26,42 +30,32 @@ return function(s)
     end,
     widget = {
       {
-        -- quick settings
         {
+          -- info widgets
+          {
+            calendar,
+            weather,
+            spacing = widget_spacing,
+            layout = wibox.layout.fixed.vertical,
+          },
+          -- quick settings
           {
             profile,
             buttons,
-            s.sliders,
+            sliders,
             music,
             layout = wibox.layout.fixed.vertical,
-            spacing = 12,
+            spacing = widget_spacing,
           },
-          widget = wibox.container.margin,
-          top = beautiful.margin_outside,
-          right = beautiful.margin_outside,
-          bottom = beautiful.margin_outside,
-          left = beautiful.margin_outside,
+          spacing = widget_spacing,
+          layout = wibox.layout.fixed.horizontal,
         },
-        -- info widgets
-        {
-          {
-            {
-              markup = "1s",
-              widget = wibox.widget.textbox,
-            },
-            {
-              markup = "2s",
-              widget = wibox.widget.textbox,
-            },
-            layout = wibox.layout.fixed.vertical,
-          },
-          widget = wibox.container.margin,
-          top = beautiful.margin_outside,
-          right = beautiful.margin_outside,
-          bottom = beautiful.margin_outside,
-          left = 0,
-        },
-        layout = wibox.layout.fixed.horizontal,
+
+        top = beautiful.margin_outside,
+        right = beautiful.margin_outside,
+        bottom = beautiful.margin_outside,
+        left = beautiful.margin_outside,
+        widget = wibox.container.margin,
       },
       bg = beautiful.bg_d,
       shape_border_width = 1,

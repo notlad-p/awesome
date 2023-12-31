@@ -16,7 +16,7 @@ local cover_image = wibox.widget {
   valign = "center",
   halign = "center",
   -- resize = true,
-  horizontal_fit_policy = "none",
+  -- horizontal_fit_policy = "none",
   vertical_fit_policy = "fit",
 }
 

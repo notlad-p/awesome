@@ -20,7 +20,8 @@ return function(s)
   }
 
   local profile_name = wibox.widget {
-    markup = "<b>Dalton</b>",
+    markup = '<b>Dalton</b>',
+    font = beautiful.font_name .. " 10.5",
     widget = wibox.widget.textbox,
   }
 
@@ -30,7 +31,7 @@ return function(s)
   end)
 
   local uptime = wibox.widget {
-    markup = '<span size="10pt">up 1d, 14h, 49m</span>',
+    markup = '<span>up 1d, 14h, 49m</span>',
     widget = wibox.widget.textbox,
   }
 
@@ -80,7 +81,7 @@ return function(s)
         uptime,
         layout = wibox.layout.flex.vertical,
       },
-      valign = "bottom",
+      valign = "center",
       halign = "left",
       widget = wibox.container.place,
     },

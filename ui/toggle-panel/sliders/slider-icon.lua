@@ -2,14 +2,14 @@ local wibox = require "wibox"
 local gears = require "gears"
 local beautiful = require "beautiful"
 
-return function(image)
+return function(image, w, h)
   local recolored_image = gears.color.recolor_image(image, beautiful.fg)
   return wibox.widget {
     {
       {
         {
-          forced_height = 16,
-          forced_width = 16,
+          forced_height = h or 16,
+          forced_width = w or 16,
           resize = true,
           image = recolored_image,
           widget = wibox.widget.imagebox,
