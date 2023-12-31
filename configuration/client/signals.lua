@@ -17,6 +17,8 @@ client.connect_signal("request::titlebars", function(c)
 		end)
 	)
 
+  awful.titlebar.enable_tooltip = false
+
 	awful.titlebar(c):setup({
 		{
 			{ -- Left
