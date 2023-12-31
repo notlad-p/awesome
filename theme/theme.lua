@@ -19,7 +19,9 @@ theme.wallpaper = user_config_path .. "images/wallpapers/2.jpg"
 
 -- font
 -- theme.font_name = "Liga SFMono Nerd Font Bold"
+theme.font_name_base = "Inter"
 theme.font_name = "Inter SemiBold"
+theme.font_name_bold = "Inter Bold"
 theme.font = theme.font_name .. " 10"
 
 ----------------------
@@ -44,7 +46,7 @@ theme.fg_urgent = theme.fg
 theme.fg_minimize = theme.fg
 
 -- client styles
-theme.useless_gap = 8
+theme.useless_gap = 2
 theme.border_width = dpi(1)
 theme.border_normal = theme.bg_d
 theme.border_focus = theme.light_grey
@@ -166,6 +168,7 @@ local custom_icons = {
   "diamond",
   "float",
   "forward",
+  "location",
   "microphone",
   "music",
   "notifications",
