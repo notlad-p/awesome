@@ -30,7 +30,7 @@ return function(s)
 		position = "top",
 		type = "dock",
 		screen = s,
-		height = 46,
+		height = 42,
 	})
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -66,8 +66,8 @@ return function(s)
 			},
 			-- margin to add gaps on left and top
 			widget = wibox.container.margin,
-			left = 15,
-			top = 10,
+			left = 2,
+			top = 6,
 		},
 		-- Middle widgets
 		{
@@ -106,7 +106,7 @@ return function(s)
 				shape_border_color = beautiful.bg_3,
 			},
 			widget = wibox.container.margin,
-			top = 10,
+			top = 6,
 		},
 		-- Right info widgets
 		{
@@ -136,8 +136,8 @@ return function(s)
 				shape_border_color = beautiful.bg_3,
 			},
 			widget = wibox.container.margin,
-			top = 10,
-			right = 15,
+			top = 6,
+			right = 2,
 		},
 	})
 end

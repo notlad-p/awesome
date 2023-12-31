@@ -10,18 +10,19 @@ M.setup = function(s)
 		awesome.emit_signal("toggle_panel::toggle", s)
 	end))
 
+  local power_image = gears.color.recolor_image(beautiful.diamond, beautiful.bg_0)
 	local power = wibox.widget({
 		{
 			{
 				{
-					image = beautiful.power,
+					image = power_image,
 					widget = wibox.widget.imagebox,
 				},
 				widget = wibox.container.margin,
-				left = 5,
-				right = 5,
-				top = 5,
-				bottom = 5,
+				left = 3,
+				right = 3,
+				top = 3,
+				bottom = 3,
 			},
 			bg = beautiful.red,
 			widget = wibox.container.background,
