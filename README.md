@@ -18,6 +18,8 @@ This config is a work in progress and will look like the below images when finis
   - scrot - for screenshots
   - nmcli - for toggling airplane mode, Bluetooth and Wi-Fi
   - playerctl - for music player
+- Also install the [Inter](https://github.com/rsms/inter) font
+  - On Fedora based system install it with `sudo dnf install rsms-inter-fonts`
 
 Install with `git clone --recurse-submodules https://github.com/notlad-p/awesome.git`
 
@@ -27,6 +29,15 @@ Install with `git clone --recurse-submodules https://github.com/notlad-p/awesome
 - The default apps like terminal and browser are located in the `configuration/apps.lua` file.
   - Startup apps / commands are also in this file.
   - _Make sure to change or remove the `xrandr` command to fit your screens_
+
+#### Live Reload
+
+To use live reload when testing and configuring make `start.sh` executable and run it:
+
+```
+chmod +x ./start.sh
+./start.sh
+```
 
 ### Customize
 
