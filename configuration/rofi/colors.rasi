@@ -1,9 +1,19 @@
 /* colors */
 
-* {
+/* onedark */
+/* * {
   al:  #00000000;
   bg:  #1a212e;
   se:  #00000000;
   fg:  #93a4c3;
   ac:  #efbd5d;
+} */
+
+/* gruvbox */
+ * {
+  al:  #00000000;
+  bg:  #2e2e2e;
+  se:  #00000000;
+  fg:  #ebdbb2;
+  ac:  #fabd2f;
 }
