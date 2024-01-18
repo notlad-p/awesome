@@ -6,6 +6,7 @@ local gears = require "gears"
 local awful = require "awful"
 require "awful.autofocus"
 local beautiful = require "beautiful"
+local menubar = require("menubar")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -48,3 +49,30 @@ require "module.auto-start"
 
 -- rules (with ruled api)
 require "configuration.notifications"
+
+-- Set gtk icons
+-- NOTE: this is a workaround for some icons not showing in the tasklist (obsidian specifically)
+-- https://github.com/awesomeWM/awesome/issues/3587
+client.connect_signal("manage", function(c)
+  awful.spawn.easy_async_with_shell("sleep 0.1", function()
+    if c.valid then
+      if c.instance ~= nil then
+        local icon = menubar.utils.lookup_icon(c.instance)
+        local lower_icon = menubar.utils.lookup_icon(c.instance:lower())
+        if icon ~= nil then
+          local new_icon = gears.surface(icon)
+          c.icon = new_icon._native
+        elseif lower_icon ~= nil then
+          local new_icon = gears.surface(lower_icon)
+          c.icon = new_icon._native
+        elseif c.icon == nil then
+          local new_icon = gears.surface(menubar.utils.lookup_icon("application-default-icon"))
+          c.icon = new_icon._native
+        end
+      else
+        local new_icon = gears.surface(menubar.utils.lookup_icon("application-default-icon"))
+        c.icon = new_icon._native
+      end
+    end
+  end)
+end)
