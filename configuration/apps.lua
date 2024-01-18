@@ -1,6 +1,6 @@
 return {
   default = {
-    terminal = "wezterm",
+    terminal = "kitty",
     scratchpad_terminal = "wezterm start --class spad",
     editor = os.getenv "EDITOR" or "editor",
     web_browser = "firefox",
