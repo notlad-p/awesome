@@ -14,6 +14,7 @@ local weather = require("ui.top-panel.weather")
 local time = require("ui.top-panel.time")
 local date = require("ui.top-panel.date")
 local power = require("ui.top-panel.power")
+local stopwatch = require('ui.top-panel.stopwatch')
 
 return function(s)
 	-- create widgets
@@ -25,6 +26,7 @@ return function(s)
 	s.time = time.setup()
 	s.date = date.setup()
 	s.power = power.setup(s)
+  s.stopwatch = stopwatch.setup()
 
 	s.mywibox = awful.wibar({
 		position = "top",
@@ -115,6 +117,7 @@ return function(s)
 					{
 						s.music,
 						s.weather,
+            s.stopwatch,
 						s.date,
 						s.time,
 						s.power,

@@ -175,6 +175,8 @@ local custom_icons = {
   "pause",
   "plane",
   "play",
+  "refresh_clock",
+  "stopwatch",
   "volume",
   "wifi",
 }
