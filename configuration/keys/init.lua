@@ -67,6 +67,9 @@ M.setup = function()
     awful.key({ modkey }, "f", function()
       awful.spawn(apps.default.web_browser)
     end, { description = "open default web browser", group = "launcher" }),
+    awful.key({ modkey }, "v", function()
+      awful.spawn("vivaldi")
+    end, { description = "open vivaldi web browser", group = "launcher" }),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
