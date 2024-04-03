@@ -35,12 +35,16 @@ M.setup = function()
   end))
 
   local restart_buttons = gears.table.join(awful.button({}, 1, function()
+    stopwatch_signal:emit_signal "restart_stopwatch"
+  end))
+
+  stopwatch_signal:connect_signal("restart_stopwatch", function()
     -- NOTE: restart button will continue a new timer if it's pressed while the timer is still active
     -- to remove this feature uncomment line below
     -- stopwatch_signal:stop()
     time_elapsed = 0
     timer_text:set_markup "00:00:00"
-  end))
+  end)
 
   local play_widget = wibox.widget {
     play_icon_widget,
@@ -62,11 +66,11 @@ M.setup = function()
   }
 
   stopwatch_signal:connect_signal("start", function()
-      play_icon_widget:set_image(pause_icon)
+    play_icon_widget:set_image(pause_icon)
   end)
 
   stopwatch_signal:connect_signal("stop", function()
-      play_icon_widget:set_image(play_icon)
+    play_icon_widget:set_image(play_icon)
   end)
 
   stopwatch_signal:connect_signal("timeout", function()
