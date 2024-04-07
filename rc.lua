@@ -30,6 +30,9 @@ require "theme.wallpaper"
 -- set up ui
 require("ui").setup()
 
+-- weather signal (API request on a timer)
+require("signal.weather")
+
 -- mouse bindings
 root.buttons(gears.table.join(
   -- awful.button({}, 3, function()

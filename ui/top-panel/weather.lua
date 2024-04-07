@@ -91,23 +91,8 @@ M.setup = function()
     }
   end
 
-  -- local GET_FORECAST_CMD = [[bash -c "curl -s --show-error -X GET '%s'"]]
-  local GET_FORECAST_CMD = "curl -X GET '%s'"
-  -- Open Weather Map API URL
-  local url = "https://api.openweathermap.org/data/2.5/weather?q="
-    .. config.city
-    .. "&units="
-    .. config.units
-    .. "&appid="
-    .. config.key
-
   -- callback after the command output is received
-  local callback = function(widget, stdout, stderr)
-    -- show_warning(stderr)
-    -- show_warning(stdout)
-
-    -- decoded json from GET request
-    local result = json.decode(stdout)
+  local callback = function(result)
 
     -- set icon
     local icon_code = result.weather[1].icon
@@ -118,7 +103,7 @@ M.setup = function()
     temp_widget.markup = tostring(temp_num) .. "°<sup>F</sup>"
   end
 
-  -- awful.widget.watch(string.format(GET_FORECAST_CMD, url), config.update_interval, callback)
+  awesome.connect_signal("current_weather::updated", callback)
 
   return weather_widget
 end
