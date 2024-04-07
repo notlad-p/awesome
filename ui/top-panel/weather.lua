@@ -38,9 +38,11 @@ M.setup = function()
   local icon_widget = wibox.widget {
     id = "icon",
     widget = wibox.widget.imagebox,
+    image = icon_dir .. icons["02d"] .. ".svg"
   }
 
   local temp_widget = wibox.widget {
+    markup = "N/A",
     id = "temp",
     widget = wibox.widget.textbox,
   }
