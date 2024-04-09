@@ -26,7 +26,7 @@ local function new()
           .. config.units
           .. "&appid="
           .. config.key
-      local forecast_url = "https://api.openweathermap.org/data/2.5/forecast/hourly?q="
+      local forecast_url = "https://api.openweathermap.org/data/2.5/forecast?q="
           .. config.city
           .. "&units="
           .. config.units
