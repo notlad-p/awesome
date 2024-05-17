@@ -18,6 +18,8 @@ This config is a work in progress and will look like the below images when finis
   - scrot - for screenshots
   - nmcli - for toggling airplane mode, Bluetooth and Wi-Fi
   - playerctl - for music player
+  - xorg-xrandr - for the brightness slider
+  - alsa-utils - for the volume and microphone slider
 - Also install the [Inter](https://github.com/rsms/inter) font
   - On Fedora based system install it with `sudo dnf install rsms-inter-fonts`
 
