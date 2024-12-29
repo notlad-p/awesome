@@ -13,9 +13,10 @@ local theme = {}
 -- Stuff that might be customized
 ---------------------------------
 -- colorscheme
-local colorscheme = "gruvbox"
+local colorscheme = "yoru"
 -- wallpaper
-theme.wallpaper = user_config_path .. "images/wallpapers/2.jpg"
+theme.wallpaper = user_config_path .. "images/wallpapers/yoru-8.jpg"
+-- theme.wallpaper = user_config_path .. "images/wallpapers/yoru-3.png"
 
 -- font
 -- theme.font_name = "Liga SFMono Nerd Font Bold"
