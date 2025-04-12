@@ -68,8 +68,19 @@ M.setup = function()
       awful.spawn(apps.default.web_browser)
     end, { description = "open default web browser", group = "launcher" }),
     awful.key({ modkey }, "v", function()
-      awful.spawn("vivaldi")
+      awful.spawn "vivaldi"
     end, { description = "open vivaldi web browser", group = "launcher" }),
+    awful.key({ modkey }, "z", function()
+      awful.spawn "zen-browser"
+    end, { description = "open Zen web browser", group = "launcher" }),
+    -- open obsidian
+    awful.key({ modkey, "Shift" }, "o", function()
+      awful.spawn "obsidian"
+    end, { description = "open Obsidian notes", group = "launcher" }),
+
+    awful.key({ modkey }, "u", function()
+      awful.spawn.with_shell "scrot -M 1 ~/Pictures/dots/$a.png"
+    end, { description = "screenshot screen 1", group = "launcher" }),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
